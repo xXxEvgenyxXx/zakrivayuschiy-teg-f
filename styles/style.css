@@ -17,4 +17,8 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  background-image:var(--background);
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
 }

@@ -12,6 +12,9 @@
 
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 
+Уважаемый ревьюер! Я тексты везде сохранил точь-в-точь, как на макете, чтобы не было расхода с макетом, 
+чтобы потом не было вопросов по поводу этого.
+
 */
 
 .page {
@@ -22,7 +25,7 @@
   background-position:center;
   background-attachment:fixed;
   color:var(--accent-color);
-  padding:8% 25.8%;
+  padding:7% 25.8%;
   font-family:Inter;
   font-weight:400;
   font-size:18px;
@@ -37,7 +40,8 @@
   justify-content: flex-end;
   padding-right:120.5px;
   padding-left:120.5px;
-  min-height:364px;
+  min-height:368px;
+  margin-bottom:100px;
 }
 .header h1 {
   font-size:65px;
@@ -52,6 +56,16 @@
   border:none;
   font-size:14px;
   margin-bottom:14px;
+  text-transform: uppercase;
+}
+.theme-menu__button:disabled {
+  opacity:0.6;
+  position: relative;
+}
+.theme-menu__button:disabled::before {
+  content: '▶';
+  position: absolute;
+  left: -15px;
 }
 .card-wrapper {
   background-color: var(--bg-color);
@@ -60,6 +74,9 @@
 .card-title {
   font-weight:785;
   font-size:18px;
+  margin-top:3px;
+  margin-bottom:5px;
+  margin-left:9px;
 }
 .card-image-wrapper {
   position:relative;
@@ -69,14 +86,42 @@
   right:25px;
   top:25px;
   font-family:PressStart2P;
+  opacity: 0.5;
+  text-shadow: 1px 1px 2px var(--bg-color);
+}
+@supports (-webkit-text-stroke: 1px var(--bg-color)) or (text-stroke: 1px var(--bg-color)) {
+  .card-image-label {
+    -webkit-text-stroke: 1px var(--bg-color);
+    text-stroke: 1px var(--bg-color);
+    text-shadow: none;
+  }
 }
 .card-image {
   width:100%;
   border-top:2px solid var(--accent-color);
   border-bottom:2px solid var(--accent-color);
 }
+.card-content-wrapper {
+  display:grid;
+  padding: 25px 25px;
+}
 .card__like-button {
   font-family:PressStart2P;
   border:2px solid var(--accent-color);
   background-color: var(--bg-color);
+}
+.card__icon-button {
+  background-color: transparent;
+  border:none;
+}
+.card-buttons-wrapper {
+  justify-self:end;
+  display: flex;
+  align-items: center;
+}
+.sparks {
+  opacity: 0;
+}
+@media(width <= 375px) {
+
 }

@@ -66,6 +66,25 @@ button:focus {
   border:none;
   font-size:14px;
   text-transform: uppercase;
+  position:relative;
+  transition: opacity 0.3s;
+}
+.theme-menu__button:hover {
+  opacity:0.6;
+}
+.theme-menu__button::after {
+  content: '';
+  height:2px;
+  width: 0;
+  background-color:var(--accent-color);
+  opacity: 0.6;
+  position:absolute;
+  bottom:-2px;
+  left:0;
+  transition: width 0.3s ease;
+}
+.theme-menu__button:focus-visible::after {
+  width:100%;
 }
 .theme-menu__button:focus {
   opacity: 0.6;
@@ -79,6 +98,15 @@ button:focus {
   content: '▶';
   position: absolute;
   left: -15px;
+  animation: moveArrow 0.5s infinite alternate;
+}
+@keyframes moveArrow {
+  from {
+    left: -15px;
+  }
+  to {
+    left: -11px;
+  }
 }
 .card-wrapper {
   background-color: var(--bg-color);
@@ -125,11 +153,15 @@ button:focus {
   background-color: var(--bg-color);
   width:130px;
   height:38px;
+  transition: box-shadow 0.3s ease;
 }
 .card__icon-button {
   background-color: transparent;
   border:none;
   margin-top:3px;
+}
+.card__icon-button:focus {
+  box-shadow:none;
 }
 .card-buttons-wrapper {
   justify-self:end;

@@ -14,3 +14,17 @@
     --bg-color:white;
     --background:url('../images/bg-light.png');
 }
+@media (prefers-color-scheme:light){ 
+    :root {
+        --accent-color:black;
+        --bg-color:white;
+        --background:url('../images/bg-light.png');
+    }
+  }
+  @media (prefers-color-scheme:dark){ 
+    :root {
+        --accent-color:#00CC14;
+        --bg-color: black;
+        --background:url('../images/bg-dark.png');
+    }
+  }

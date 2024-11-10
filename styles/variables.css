@@ -2,6 +2,6 @@
 :root {
     --accent-color:#00CC14;
     --bg-color: black;
-    --background:url('../images/bg-dark.png');
+    --background:repeating-linear-gradient(90deg, black 0 2px, rgb(0 0 0 / 0) 2px 4px), repeating-linear-gradient(180deg, black 0 2px, rgb(0 0 0 / 0) 2px 4px), linear-gradient(180deg, #00CC14 0%, #004306 100%);
     --heart-fill:#FF0000;
 }

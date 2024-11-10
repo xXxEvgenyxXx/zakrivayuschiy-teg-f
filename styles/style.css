@@ -12,15 +12,12 @@
 
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 
-Уважаемый ревьюер! Я тексты везде сохранил точь-в-точь, как на макете, чтобы не было расхода с макетом, 
-чтобы потом не было вопросов по поводу этого.
-
 */
 
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  background-image:var(--background);
+  background:var(--background);
   background-size:cover;
   background-position:center;
   background-attachment:fixed;
@@ -154,11 +151,33 @@ button:focus {
   width:130px;
   height:38px;
   transition: box-shadow 0.3s ease;
+  position:relative;
+}
+.card__like-button:after {
+  content: '';
+  position:absolute;
+  left:0;
+  top:0;
+  height:100%;
+  width: 0;
+  background-color:var(--accent-color);
+  transition:0.5s width ease;
+}
+.card__like-button:hover::after {
+  width:100%;
+  transition:0.5s width ease;
+}
+.card__like-button:hover .button__text {
+  color:var(--bg-color);
+  transition: 0.5s;
 }
 .card__icon-button {
   background-color: transparent;
   border:none;
   margin-top:3px;
+}
+.card__icon-button:hover {
+  transition: fill 0.3s ease;
 }
 .card__icon-button:focus {
   box-shadow:none;
@@ -176,7 +195,30 @@ button:focus {
 }
 .button__text {
   font-size:14px;
+  z-index:100;
+  position:relative;
 }
+.heart .main-body,.heart .core {
+    transition: fill 0.3s ease;
+}
+.card__icon-button:hover .main-body {
+  fill: var(--accent-color);
+  transition: fill 0.3s ease;
+}
+
+.card__icon-button:hover .core {
+  fill: var(--accent-color);
+  transition: fill 0.3s ease;
+}
+.card__icon-button:active .main-body {
+  fill: var(--heart-fill);
+  transition: fill 0.3s ease;
+}
+.card__icon-button:active .core {
+  fill: var(--heart-fill);
+  transition: fill 0.3s ease;
+}
+
 @media(width <= 375px) {
 
 }

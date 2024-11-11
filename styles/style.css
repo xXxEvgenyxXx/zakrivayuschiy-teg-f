@@ -307,7 +307,7 @@ button:focus {
   .save-btn {
     flex-direction: column;
   }
-  .save-btn img {
+  .save-btn svg {
     width:28px;
     height:28px;
     margin-bottom:8px;

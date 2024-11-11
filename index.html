@@ -293,9 +293,22 @@
           </div>
         </div>
       </div>
-      <button class="save-btn">
-        <img src="./svg/disketa.svg">Сохранить на память
+      <button aria-controls="disketa-dialog" onclick="window['disketa-dialog'].showModal()" class="save-btn">
+        <svg>
+          <use xlink:href="./svg/floppy.svg#floppy"></use>
+        </svg>Сохранить на память
       </button>
+      <dialog id="disketa-dialog">
+        <div class="dialog-content-wrapper">
+          <svg>
+            <use xlink:href="./svg/floppy.svg#floppy"></use>
+          </svg>
+          Вставьте дискету, чтобы продолжить
+        </div>
+        <button type="button" 
+          aria-controls="disketa-dialog" 
+          onclick="window['disketa-dialog'].close()" class="dialog-close-btn">OK</button>
+      </dialog>
     </main>
     <script src="./scripts/like.js"></script>
   </body>

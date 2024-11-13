@@ -273,6 +273,7 @@ button:focus {
 .save-btn:hover svg {
   color:var(--disketa-color);
   transition:0.5s;
+  mix-blend-mode: difference;
 }
 #disketa-dialog[open] {
   display: flex;

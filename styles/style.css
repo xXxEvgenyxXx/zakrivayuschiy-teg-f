@@ -167,6 +167,7 @@ button:focus {
 .card__like-button {
   width:130px;
   height:38px;
+  margin-left:2px;
 }
 .btn:after {
   content: '';
@@ -282,6 +283,7 @@ button:focus {
   gap:30px;
   width: clamp(21.3125rem, 21.0484rem + 1.1268vw, 22.0625rem);
   border:2px solid var(--accent-color);
+  padding:30px 30px;
 }
 .disketa-dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.75);
@@ -301,6 +303,9 @@ button:focus {
   align-items: center;
   font-family: var(--accent-font),fantasy,sans-serif;
   color:var(--accent-color);
+  text-transform: uppercase;
+  line-height: 21px;
+  font-size:14px;
 }
 .dialog-content-wrapper svg {
   margin-right:20px;
@@ -352,8 +357,5 @@ button:focus {
     width:28px;
     height:28px;
     margin-bottom:8px;
-  }
-  .card-content-wrapper p {
-    line-height:23px;
   }
 }

@@ -23,16 +23,14 @@
   background-attachment:fixed;
   color:var(--accent-color);
   padding:7% clamp(0rem, -8.1426rem + 34.7418vw, 23.125rem);
-  font-family:var(--defaultfont), sans-serif;
-  font-weight:400;
+  font-family:var(--default-font), sans-serif;
   font-size:18px;
-  font-variation-settings: 'wght' var(--PS2P);
-  font-variation-settings: 'wght' var(--defaultfont);
+  font-variation-settings: 'wght' var(--default-font);
 }
 .header {
   background-color:var(--bg-color);
   border:2px solid var(--accent-color);
-  font-family:var(--PS2P), fantasy, sans-serif;
+  font-family:var(--accent-font), fantasy, sans-serif;
   display:flex;
   flex-direction: column;
   align-items:center;
@@ -102,7 +100,7 @@ button:focus {
   content: '▶';
   position: absolute;
   left: -15px;
-  animation: moveArrow 0.5s infinite alternate;
+  animation: moveArrow 0.5s infinite alternate ease-in-out;
 }
 .card-wrapper {
   background-color: var(--bg-color);
@@ -110,7 +108,6 @@ button:focus {
   margin-bottom:52px;
 }
 .card-title {
-  font-weight:785;
   font-size:18px;
   margin-top:3px;
   margin-bottom:5px;
@@ -132,11 +129,12 @@ button:focus {
   position:absolute;
   right:25px;
   top:26px;
-  font-family:var(--PS2P), fantasy, sans-serif;
+  font-family:var(--accent-font), fantasy, sans-serif;
   z-index:100;
   opacity: 0.5;
   font-size:14px;
   text-shadow: 1px 1px 2px var(--bg-color);
+  mix-blend-mode: difference;
 }
 @supports (-webkit-text-stroke: 1px var(--bg-color)) or (text-stroke: 1px var(--bg-color)) {
   .card-image-label {
@@ -147,15 +145,24 @@ button:focus {
 }
 .card-content-wrapper {
   display:grid;
-  padding:20px 25px;
-  gap:22px;
+  padding:20px 24px;
+  gap:27px;
+  padding-bottom:23px;
+}
+.card-content-wrapper p {
+  line-height:21px;
 }
 .btn {
-  font-family:var(--PS2P), fantasy, sans-serif;
+  font-family:var(--accent-font), fantasy, sans-serif;
   border:2px solid var(--accent-color);
   background-color: var(--bg-color);
   transition: box-shadow 0.3s ease;
+  padding-top:15px;
+  padding-bottom:15px;
   position:relative;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
 .card__like-button {
   width:130px;
@@ -169,13 +176,13 @@ button:focus {
   height:100%;
   width: 0;
   background-color:var(--accent-color);
-  transition:0.5s width ease;
+  transition:0.5s width ease-in-out;
+  z-index:1;
 }
 .btn:hover::after {
   width:100%;
 }
 .btn:hover .button__text, .btn:hover .btn-text {
-  color:var(--bg-color);
   transition: 0.5s;
 }
 .card__icon-button {
@@ -186,6 +193,7 @@ button:focus {
   align-items: center;
   width:50px;
   height:38px;
+  border:2px solid transparent;
 }
 .card__icon-button:focus {
   box-shadow:none;
@@ -194,7 +202,6 @@ button:focus {
 .card-buttons-wrapper {
   justify-self:end;
   display: flex;
-  margin-top:2px;
 }
 .sparks {
   fill:var(--bg-color);
@@ -203,63 +210,55 @@ button:focus {
   font-size:14px;
   z-index:100;
   position:relative;
+  color:var(--button-text-color);
+  mix-blend-mode: difference;
 }
-.main-body,.core, .contour {
-    transition: fill 0.3s linear 0s;
+.contour {
+  transition: fill 0.1s linear;
+}
+.main-body {
+  transition: fill 0.3s linear;
 }
 .core {
-  transition-delay:0.03s;
+  transition: fill 0.3s linear 0.3s;
 }
+.card__icon-button:hover .core,
 .card__icon-button:hover .main-body,
+.card__icon-button:hover .contour {
+  fill:var(--accent-color);
+}
 .card__icon-button:hover .core {
-    fill: var(--accent-color);
+  transition: fill 0.3s linear;
 }
 .card__icon-button:hover .main-body {
-  transition-delay:0.03s;
-}
-.card__icon-button:hover .core {
-  transition-delay:0s;
+  transition:fill 0.3s linear 0.05s;
 }
 .card__icon-button:active .main-body,
-.card__icon-button:active .core,
-.card__icon-button:active .contour {
+.card__icon-button:active .core{
     fill: var(--heart-fill);
 }
-.card__icon-button:active .main-body {
-  transition-delay:0.03s;
+.is-liked .main-body {
+  transition:fill 0.3s linear 0.05s;
 }
-.card__icon-button:active .contour {
-  transition-delay:0.06s;
+.is-liked .core {
+  transition:fill 0.3s linear;
 }
-.card__icon-button:active .sparks {
-  transition: fill 0.9s linear 0.01s;
+.is-liked .contour {
+  transition:fill 0.3s linear 0.06s;
+}
+.is-liked .sparks {
   fill:var(--heart-fill);
-  animation: 0.3s scaleHeart;
-  animation-delay:0.08s;
+  animation: 0.3s scaleHeart ease-in 0.3s;
   transform-origin: center;
 }
-.card__icon-button:active .heart {
-  animation:0.3s scaleHeart;
-  animation-delay:0.01s;
+.is-liked .heart {
+  animation:0.3s scaleHeart ease-in 0.1s;
   transform-origin:center;
-}
-.card__icon-button:hover .main-body {
-  transition:fill 0.3s linear 0.03s;
 }
 .save-btn {
   width:clamp(19.125rem, 18.4868rem + 2.723vw, 20.9375rem);
   justify-self:center;
-  font-size:14px;
-  transition:box-shadow 0.3s linear;
-  background-color: var(--bg-color);
-  border:2px solid var(--accent-color);
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  font-family: var(--PS2P), fantasy,sans-serif;
-  padding-top:15px;
-  padding-bottom:15px;
-  margin-top:-8px;
+  font-family: var(--accent-font), fantasy,sans-serif;
   z-index:10;
   mix-blend-mode: difference;
 }
@@ -268,14 +267,14 @@ button:focus {
   height:21px;
   margin-right:clamp(0rem, -0.1761rem + 0.7512vw, 0.5rem);
   z-index:100;
-  color:var(--accent-color);
-}
-.save-btn:hover svg {
-  color:var(--disketa-color);
-  transition:0.5s;
+  color: var(--button-text-color);
   mix-blend-mode: difference;
 }
-#disketa-dialog[open] {
+.save-btn:hover svg {
+  transition:0.5s;
+  z-index: 100;
+}
+.disketa-dialog[open] {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -284,22 +283,23 @@ button:focus {
   width: clamp(21.3125rem, 21.0484rem + 1.1268vw, 22.0625rem);
   border:2px solid var(--accent-color);
 }
-#disketa-dialog::backdrop {
+.disketa-dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.75);
 }
-#disketa-dialog button {
-  border:2px solid var(--accent-color);
-  background-color: transparent;
-  font-family: var(--PS2P),fantasy,sans-serif;
-  font-size:14px;
+.disketa-dialog button {
   height:38px;
-  box-shadow:none;
   color:var(--accent-color);
+}
+.dialog-close-text {
+  color:var(--accent-color);
+}
+.dialog-close-button:hover .dialog-close-text {
+  mix-blend-mode: difference;
 }
 .dialog-content-wrapper {
   display:flex;
   align-items: center;
-  font-family: var(--PS2P),fantasy,sans-serif;
+  font-family: var(--accent-font),fantasy,sans-serif;
   color:var(--accent-color);
 }
 .dialog-content-wrapper svg {
@@ -342,7 +342,8 @@ button:focus {
     top:24px;
   }
   .card-buttons-wrapper {
-    margin-top:-2px;
+    margin-top:0;
+    margin-bottom:2px;
   }
   .save-btn {
     flex-direction: column;
@@ -351,5 +352,8 @@ button:focus {
     width:28px;
     height:28px;
     margin-bottom:8px;
+  }
+  .card-content-wrapper p {
+    line-height:23px;
   }
 }

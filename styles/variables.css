@@ -4,7 +4,7 @@
     --bg-color: black;
     --background:repeating-linear-gradient(90deg, black 0 2px, rgb(0 0 0 / 0) 2px 4px), repeating-linear-gradient(180deg, black 0 2px, rgb(0 0 0 / 0) 2px 4px), linear-gradient(180deg, #00CC14 0%, #004306 100%);
     --heart-fill:#FF0000;
-    --disketa-color:black;
-    --PS2P: PressStart2P;
-    --defaultfont: Inter;
+    --accent-font: PressStart2P;
+    --default-font: Inter;
+    --button-text-color:white;
 }

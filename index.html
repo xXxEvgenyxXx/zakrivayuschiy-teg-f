@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./styles/animations.css" />
     <link rel="stylesheet" href="./styles/themes.css" />
     <link rel="icon" href="./images/favicon.svg">
-    <link rel="apple-touch-icon" href="./images/favicon.svg">
+    <link rel="apple-touch-icon" href="./images/favicon.png">
     <script src="./scripts/set-theme.js"></script>
     <meta name="color-scheme" content="dark light">
   </head>
@@ -290,7 +290,7 @@
                 </defs>
                 </svg>
             </button>
-            <button class="card__like-button btn"><span class="button__text">Like</span></button>
+            <button type="button" class="card__like-button btn"><span class="button__text">Like</span></button>
           </div>
         </div>
       </div>
@@ -300,16 +300,16 @@
         </svg>
         <span class="btn-text">Сохранить на память</span>
       </button>
-      <dialog id="disketa-dialog">
+      <dialog class="disketa-dialog" id="disketa-dialog">
         <div class="dialog-content-wrapper">
           <svg>
             <use xlink:href="./svg/floppy.svg#floppy"></use>
           </svg>
-          Вставьте дискету, чтобы продолжить
+          <p>Вставьте дискету, чтобы продолжить</p>
         </div>
         <button type="button" 
           aria-controls="disketa-dialog" 
-          onclick="window['disketa-dialog'].close()" class="dialog-close-btn">OK</button>
+          onclick="window['disketa-dialog'].close()" class="dialog-close-btn btn"><span class="btn-text">OK</span></button>
       </dialog>
     </main>
     <script src="./scripts/like.js"></script>

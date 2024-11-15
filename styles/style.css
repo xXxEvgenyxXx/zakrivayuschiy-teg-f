@@ -39,6 +39,7 @@
   padding-right:120.5px;
   padding-left:120.5px;
   margin-bottom:100px;
+  font-variation-settings: 'wght' var(--accent-font);
 }
 main {
   display:grid;
@@ -56,6 +57,7 @@ button:focus {
   margin-bottom:25px;
   text-transform:uppercase;
   white-space:nowrap;
+  font-variation-settings: 'wght' var(--accent-font);
 }
 .theme-menu__list {
   margin-bottom:25px;
@@ -151,6 +153,7 @@ button:focus {
 }
 .card-content-wrapper p {
   line-height:21px;
+  font-variation-settings: 'wght' var(--default-font);
 }
 .btn {
   font-family:var(--accent-font), fantasy, sans-serif;
@@ -238,6 +241,11 @@ button:focus {
 .card__icon-button:active .core{
     fill: var(--heart-fill);
 }
+.is-liked .main-body,
+.is-liked .core,
+.is-liked .contour {
+  fill: var(--heart-fill);
+}
 .is-liked .main-body {
   transition:fill 0.3s linear 0.05s;
 }
@@ -248,8 +256,7 @@ button:focus {
   transition:fill 0.3s linear 0.06s;
 }
 .is-liked .sparks {
-  fill:var(--heart-fill);
-  animation: 0.3s scaleHeart ease-in 0.3s;
+  animation: 0.3s scaleSparks ease-in 0.1s;
   transform-origin: center;
 }
 .is-liked .heart {

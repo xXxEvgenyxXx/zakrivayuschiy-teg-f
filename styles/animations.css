@@ -22,19 +22,65 @@
   }
 @keyframes scaleHeart {
     from {
-        transform:scale(1.5);
+      transform:scale(1);
     }
     to {
-      transform:scale(1);
+      transform:scale(1.5);
     }
 }
 @keyframes scaleSparks {
   from {
-    transform:scale(1.5);
     fill:var(--heart-fill);
   }
   to {
-    transform:scale(1);
     fill:var(--bg-color);
   }
+}
+.contour {
+  transition: fill 0.1s linear;
+}
+.main-body {
+  transition: fill 0.3s linear;
+}
+.core {
+  transition: fill 0.3s linear 0.03s;
+}
+.sparks {
+  fill:var(--bg-color);
+}
+.like-icon:hover .main-body {
+  fill:var(--accent-color);
+  transition:fill 0.3s linear 0.05s;
+}
+.like-icon:hover .core {
+  fill:var(--accent-color);
+  transition: fill 0.3s linear;
+}
+.like-icon:active .main-body{
+  fill: var(--heart-fill);
+  transition: fill 0.3s linear 0.05s;
+}
+.like-icon:active .core{
+  fill: var(--heart-fill);
+  transition: fill 0.3s linear;
+}
+.like-icon.is-liked .main-body{
+  fill: var(--heart-fill);
+  transition: fill 0.3s linear 0.05s;
+}
+.like-icon.is-liked .core{
+  fill: var(--heart-fill);
+  transition: fill 0.3s linear;
+}
+.like-icon.is-liked .contour {
+  fill: var(--heart-fill);
+  transition: fill 0.3s linear 0.06s;
+}
+.is-liked .heart {
+  animation:scaleHeart 0.3s ease-in 0.1s 1 normal;
+  transform-origin:center;
+}
+.is-liked .sparks {
+  animation:scaleSparks 0.3s ease-in 0.3s 1 normal;
+  transform-origin: center;
 }

@@ -7,7 +7,5 @@
 }
 @font-face {
     font-family: PressStart2P;
-    src: 
-        url('./PressStart2P-Regular.woff') format('woff2 supports variations'),
-        url('./PressStart2P-Regular.woff') format('woff2-variations');
+    src: url('./PressStart2P-Regular.woff') format('woff2'),
 }

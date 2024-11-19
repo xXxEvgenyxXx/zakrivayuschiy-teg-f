@@ -185,8 +185,7 @@ button:focus {
 .btn:hover::after {
   width:100%;
 }
-.btn:hover .button__text {
-  transition: 0.5s;
+.button__text {
   mix-blend-mode:difference;
 }
 .card__icon-button {
@@ -198,10 +197,13 @@ button:focus {
   width:50px;
   height:38px;
   border:2px solid transparent;
+  transition: border-color 0.3s ease;
 }
 .card__icon-button:focus {
   box-shadow:none;
-  border:2px solid var(--accent-color);
+}
+.card__icon-button:focus-visible {
+  border-color: var(--accent-color);
 }
 .card-buttons-wrapper {
   justify-self:end;
@@ -230,7 +232,6 @@ button:focus {
   mix-blend-mode: difference;
 }
 .save-btn:hover svg {
-  transition:0.5s;
   z-index: 100;
 }
 .disketa-dialog[open] {
@@ -253,9 +254,6 @@ button:focus {
 .dialog-close-text {
   color:var(--accent-color);
 }
-.dialog-close-button:hover .dialog-close-text {
-  mix-blend-mode: difference;
-}
 .dialog-content-wrapper {
   display:flex;
   align-items: center;
@@ -265,11 +263,11 @@ button:focus {
   line-height: 21px;
   font-size:14px;
 }
-.dialog-content-wrapper svg {
+.dialog-content-wrapper svg{
   margin-right:20px;
   fill:var(--accent-color);
-  width:69px;
-  height:69px;
+  width:80px;
+  height:45px;
 }
 .grayscale {
   filter:grayscale(50%);
@@ -318,5 +316,10 @@ button:focus {
   }
   .disketa-dialog[open] {
     width:341px;
+    padding-left:35px;
+    padding-right:35px;
+  }
+  .dialog-content-wrapper svg {
+    width:95px;
   }
 }

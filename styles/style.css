@@ -251,9 +251,6 @@ button:focus {
   height:38px;
   color:var(--accent-color);
 }
-.dialog-close-text {
-  color:var(--accent-color);
-}
 .dialog-content-wrapper {
   display:flex;
   align-items: center;
